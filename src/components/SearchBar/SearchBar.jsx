@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import { Button, Field, Form } from './SearchBar.styled';
+import { ReactComponent as SearchIcon } from '../icons/search.svg';
 
 export const SearchBar = ({ onSubmit }) => {
   const handleSubmit = async (values, actions) => {
@@ -12,8 +13,12 @@ export const SearchBar = ({ onSubmit }) => {
     <Formik initialValues={{ name: '' }} onSubmit={handleSubmit}>
       {({ isSubmitting }) => (
         <Form>
-          <Button type="submit" disabled={isSubmitting}>
-            <span>Search</span>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            aria-label="Search images"
+          >
+            <SearchIcon width="20" height="20" />
           </Button>
           <Field
             name="name"

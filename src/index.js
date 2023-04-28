@@ -14,6 +14,7 @@ const theme = {
     accent: 'tomato',
     green: 'green',
     red: 'orangeRed',
+    orange: '#e85b0f',
     lightBlue: '#14acdf',
     error: 'red',
     blue: '#4d4dff',

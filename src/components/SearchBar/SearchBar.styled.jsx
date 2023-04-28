@@ -6,8 +6,6 @@ export const Form = styled(FormikForm)`
   align-items: center;
   width: 100%;
   max-width: 600px;
-  /* background-color: #fff; */
-  /* border-radius: 3px; */
   overflow: hidden;
 `;
 
@@ -19,8 +17,7 @@ export const Field = styled(FormikField)`
   font-size: 20px;
   border: none;
   outline: none;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 10px;
   border-radius: 3px;
 
   ::placeholder {
@@ -31,13 +28,11 @@ export const Field = styled(FormikField)`
 
 export const Button = styled.button`
   display: inline-block;
-  width: 48px;
-  height: 48px;
+  align-items: center;
+  width: 40px;
+  height: 40px;
   border: 0;
-  background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
-  background-size: 40%;
-  background-repeat: no-repeat;
-  background-position: center;
+  border-radius: 3px;
   opacity: 0.6;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
