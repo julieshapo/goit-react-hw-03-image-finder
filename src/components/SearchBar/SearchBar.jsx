@@ -1,4 +1,5 @@
-import { Field, Form, Formik } from 'formik';
+import { Formik } from 'formik';
+import { Button, Field, Form } from './SearchBar.styled';
 
 export const SearchBar = ({ onSubmit }) => {
   const handleSubmit = async (values, actions) => {
@@ -11,9 +12,9 @@ export const SearchBar = ({ onSubmit }) => {
     <Formik initialValues={{ name: '' }} onSubmit={handleSubmit}>
       {({ isSubmitting }) => (
         <Form>
-          <button type="submit" disabled={isSubmitting}>
+          <Button type="submit" disabled={isSubmitting}>
             <span>Search</span>
-          </button>
+          </Button>
           <Field
             name="name"
             type="text"

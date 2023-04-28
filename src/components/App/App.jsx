@@ -2,7 +2,11 @@ import { Button } from 'components/Button/Button';
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { Component } from 'react';
+
 import * as API from 'services/pixabay-api';
+import { Container } from './App.styled';
+import { Header } from 'components/Header/Header';
+import { Loader } from 'components/Loader/Loader';
 
 export class App extends Component {
   state = {
@@ -50,23 +54,24 @@ export class App extends Component {
 
   loadMore = () => {
     this.setState(prevState => ({
-      page: prevState.page + 1,
+      page: (prevState.page += 1),
     }));
   };
 
   render() {
     const { gallery, isLoading, error, page } = this.state;
     return (
-      <div>
-        <header>
+      <Container>
+        <Header>
           <SearchBar onSubmit={this.searchImages} />
-        </header>
+        </Header>
         {error && <p>'Oops, something went wrong! Please, try again'</p>}
-        {isLoading ? '...LOADING' : <ImageGallery items={gallery} />}
-        {gallery.length / 12 >= page && !isLoading && (
+        {isLoading ? <Loader /> : <ImageGallery items={gallery} />}
+
+        {Math.ceil(gallery?.length / 12) >= page && !isLoading && (
           <Button onClick={this.loadMore} />
         )}
-      </div>
+      </Container>
     );
   }
 }
