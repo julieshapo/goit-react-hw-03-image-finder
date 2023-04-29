@@ -1,9 +1,8 @@
+import * as API from 'services/pixabay-api';
 import { Button } from 'components/Button/Button';
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { Component } from 'react';
-
-import * as API from 'services/pixabay-api';
 import { Container } from './App.styled';
 import { Header } from 'components/Header/Header';
 import { Loader } from 'components/Loader/Loader';

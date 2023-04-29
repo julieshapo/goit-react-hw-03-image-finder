@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Image } from './ImageGalleryItem.styled';
 import { Modal } from 'components/Modal/Modal';
+import PropTypes from 'prop-types';
 
 export class ImageGalleryItem extends Component {
   state = {
@@ -26,14 +27,26 @@ export class ImageGalleryItem extends Component {
     return (
       <div>
         <div onClick={() => this.toggleModal(largeImageURL)}>
-          <Image src={item.webformatURL} alt={item.tags} width="320" />
+          <Image
+            loading="lazy"
+            src={item.webformatURL}
+            alt={item.tags}
+            width="320"
+          />
         </div>
         {showModal && (
           <Modal onClose={this.toggleModal}>
-            <img src={largeImageURL} alt={tags} />
+            <img loading="lazy" src={largeImageURL} alt={tags} />
           </Modal>
         )}
       </div>
     );
   }
 }
+
+ImageGalleryItem.propTypes = {
+  item: PropTypes.shape({
+    largeImageURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
+  }).isRequired,
+};

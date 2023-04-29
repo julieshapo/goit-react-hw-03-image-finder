@@ -1,5 +1,6 @@
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { Gallery } from './ImageGallery.styled';
+import PropTypes from 'prop-types';
 
 export const ImageGallery = ({ items }) => {
   return (
@@ -11,4 +12,12 @@ export const ImageGallery = ({ items }) => {
       ))}
     </Gallery>
   );
+};
+
+ImageGallery.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 };
