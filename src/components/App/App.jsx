@@ -53,7 +53,7 @@ export class App extends Component {
 
   loadMore = () => {
     this.setState(prevState => ({
-      page: (prevState.page += 1),
+      page: prevState.page + 1,
     }));
   };
 
